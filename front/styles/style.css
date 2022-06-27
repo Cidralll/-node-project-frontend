@@ -1,0 +1,70 @@
+.body-home {
+  width: 100%;
+}
+
+.body-home .header-home {
+  width: 75%;
+  margin-left: 12%;
+  margin-top: -2%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.body-home .main-home {
+  width: 80%;
+  margin-left: 7%;
+}
+
+.body-home .main-home .container-home .home-div-name {
+  display: -ms-grid;
+  display: grid;
+  width: 78.5%;
+  margin-left: 18%;
+}
+
+.body-home .main-home .container-home .home-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.body-home .main-home .container-home .home-div .div {
+  display: -ms-grid;
+  display: grid;
+}
+
+.body-home .main-home .container-home .home-div input {
+  width: 200%;
+}
+
+.body-home .main-home .container-home .home-div select {
+  width: 100%;
+}
+
+.body-home .main-home .container-home label {
+  font-size: 1.4rem;
+}
+
+.body-home .main-home .container-home input {
+  height: 1.3rem;
+}
+
+.body-home .button-registration {
+  text-align: right;
+  margin-top: 5%;
+  margin-right: 10%;
+}
+
+.body-home .button-registration button {
+  width: 15%;
+  height: 2.5rem;
+  background-color: #056fec;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,63 @@
+.body-home {
+    width: 100%;
+
+    .header-home {
+        width: 75%;
+        margin-left: 12%;
+        margin-top: -2%;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .main-home {
+        width: 80%;
+        margin-left: 7%;
+
+        .container-home {
+
+            .home-div-name {
+                display: grid;
+                width: 78.5%;
+                margin-left: 18%;
+            }
+
+            .home-div {
+                display:flex;
+                margin-top: 1%;
+                justify-content: space-around;
+
+                .div{
+                    display: grid;
+                }
+            }
+            .home-div input {
+                width: 200%;
+            }
+            .home-div select {
+                width: 100%;
+            }
+            
+        }
+        .container-home label {
+            font-size: 1.4rem;
+        }
+        .container-home input {
+            height: 1.3rem;
+        }
+    }
+
+    .button-registration {
+        text-align: right;
+        margin-top: 5%;
+        margin-right: 10%;
+    }
+    .button-registration button {
+        width: 15%;
+        height: 2.5rem;
+        background-color: #056fec;
+        font-size: 1.2rem;
+        color: white;
+        border: none;   
+    }
+}
