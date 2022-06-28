@@ -22,7 +22,7 @@ function listTask(tasks) {
                 <h2>Date task: ${task.date}</h2>
                 <h2 class="name-user" id="${task.user}">Userame: ${task.user}</h2>
                 <div class="imgs">
-                    <div class="img1" onclick="editTask(${task._id})"><img src="./img/editar.png" width=25 height=25></div>
+                    <div class="img1" onclick="loadTaskUpdate('${task._id}');"><img src="./img/editar.png" width=25 height=25></div>
                     <div class="img2" onclick="DeleteTask(${cont})"><img src="./img/cesto-de-lixo.png" width=30 height=30></div>
                 </div>
             </div>

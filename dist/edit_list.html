@@ -8,7 +8,7 @@
     <link href="./css/style.css" rel="stylesheet">
     <title>Task</title>
 </head>
-<body class="body-home" value="200">
+<body class="body-home" value="200" onload="loadTask();">
     <header class="header-list">
         <h1>Creating a task</h1>
     </header>
@@ -17,7 +17,7 @@
         <div class="container-list">
             <div class="div-list">
                 <label>Task description</label>
-                <input type="text" id="description" value="">
+                <input type="text" id="description">
             </div>
             <div class="div-list-select">
                 <div class="selects-div">
@@ -37,11 +37,11 @@
             </div>
         </div>
         <div class="button-registration">
-            <button onclick="createTask(event);">Submit</button >
+            <button onclick="updateTask();">Submit</button >
         </div>
         
     </main>
     
-    <script src="./js/task.js"></script>
+    <script src="js/task.js"></script>
 </body>
 </html>

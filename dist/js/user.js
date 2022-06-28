@@ -103,17 +103,20 @@ function createRequest() {
     });
 }
 const deleteUser = (id) => __awaiter(this, void 0, void 0, function* () {
-    let response = yield deleteRequest(id);
-    let json = yield response['json']();
-    let statusCode = response['status'];
-    if (statusCode == 400) {
-        console.log(json['message']);
-    }
-    else if (statusCode == 500) {
-        console.log(json['message']);
-    }
-    else if (statusCode == 200) {
-        console.log("OK!");
+    let verifica = confirm("Tem certeza que quer excluir este usuario?");
+    if (verifica) {
+        let response = yield deleteRequest(id);
+        let json = yield response['json']();
+        let statusCode = response['status'];
+        if (statusCode == 400) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 500) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 200) {
+            console.log("OK!");
+        }
     }
 });
 function deleteRequest(id) {
@@ -139,7 +142,7 @@ const updateUser = () => __awaiter(this, void 0, void 0, function* () {
     for (const param of params) {
         var id = param[1];
     }
-    let response = yield updateRequest(id);
+    let response = yield updateUserRequest(id);
     let json = yield response['json']();
     let statusCode = response['status'];
     if (statusCode == 400) {
@@ -153,7 +156,7 @@ const updateUser = () => __awaiter(this, void 0, void 0, function* () {
         console.log("OK!");
     }
 });
-function updateRequest(id) {
+function updateUserRequest(id) {
     return __awaiter(this, void 0, void 0, function* () {
         let form = getForm();
         let request = yield fetch(`http://127.0.0.1:8080/api/v1/users/${id}`, {
