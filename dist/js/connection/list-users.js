@@ -15,7 +15,7 @@ function GetUsers() {
             listUsers(data);
         }
         catch (error) {
-            console.log("Erro!");
+            // console.log("Erro!")
         }
     });
 }

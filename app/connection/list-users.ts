@@ -4,7 +4,7 @@ async function GetUsers() {
         const data = await response.json()
         listUsers(data)        
     } catch(error) {
-        console.log("Erro!")
+        // console.log("Erro!")
     }
 }
 function listUsers(tasks) {
