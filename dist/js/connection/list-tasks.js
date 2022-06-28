@@ -32,9 +32,9 @@ function listTask(tasks) {
                 <h2 class="id" id="${task._id}">Id: ${cont}</h2>
                 <h2>Description: ${task.description}</h2>
                 <h2>Date task: ${task.date}</h2>
-                <h2>Userame: ${task.user}</h2>
+                <h2 class="name-user" id="${task.user}">Userame: ${task.user}</h2>
                 <div class="imgs">
-                    <div class="img1"><img src="./img/editar.png" width=25 height=25></div>
+                    <div class="img1" onclick="editTask(${task._id})"><img src="./img/editar.png" width=25 height=25></div>
                     <div class="img2" onclick="DeleteTask(${cont})"><img src="./img/cesto-de-lixo.png" width=30 height=30></div>
                 </div>
             </div>
@@ -42,11 +42,23 @@ function listTask(tasks) {
     }
     document.querySelector('.main-list-tasks').innerHTML = output;
     var aux = document.querySelector('.div-tasks');
-    console.log(aux.id);
-    console.log(cont);
 }
 GetTasks();
 const state = {
     page: 1,
     perPage: 5
 };
+function SearchName() {
+    let input = document.getElementById('searchbar').value;
+    input.toLocaleLowerCase();
+    let divs = document.querySelectorAll('.div-tasks');
+    let users = document.querySelectorAll('.name-user');
+    for (let i = 0; users.length > i; i++) {
+        if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
+            divs[i].style.display = "none";
+        }
+        else {
+            divs[i].style.display = "list-item";
+        }
+    }
+}
