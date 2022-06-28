@@ -30,7 +30,7 @@ function listUsers(tasks) {
 
                 </div>
                 <p class="cont" id="${cont}"></p>
-                <h2>Name: ${task.name}</h2>
+                <h2 class="name-user" id="${task.user}">Name: ${task.name}</h2>
                 <h2>CPF: ${task.cpf}</h2>
                 <h2>Birth Date: ${task.birthDate}</h2>
                 <h2>Email: ${task.email}</h2>
@@ -47,7 +47,19 @@ function listUsers(tasks) {
     }
     document.querySelector('.main-list-tasks').innerHTML = output;
     var aux = document.querySelector('.cont');
-    console.log(aux.id);
-    console.log(cont);
 }
 GetUsers();
+function SearchNameUsers() {
+    let input = document.getElementById('searchbar').value;
+    input.toLocaleLowerCase();
+    let divs = document.querySelectorAll('.div-tasks');
+    let users = document.querySelectorAll('.name-user');
+    for (let i = 0; users.length > i; i++) {
+        if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
+            divs[i].style.display = "none";
+        }
+        else {
+            divs[i].style.display = "list-item";
+        }
+    }
+}
