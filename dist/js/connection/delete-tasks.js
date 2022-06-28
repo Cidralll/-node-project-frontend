@@ -17,6 +17,7 @@ function DeleteTask(cont) {
                 let id = document.querySelector('.id');
                 console.log(id.id);
                 Delete(id.id);
+                location.reload();
             }
         }
     }
