@@ -30,37 +30,42 @@ function listSelection(names) {
     document.querySelector('.select').innerHTML = output;
 }
 GetNameSelection();
-// vai salvar os dados no banco
-function Submit() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let description = document.getElementById('description').value;
-        let date = document.getElementById('date').value;
-        let time = document.getElementById('time').value;
-        let user = document.getElementById('user').value;
-        console.log(description);
-        console.log(date);
-        console.log(time);
-        console.log(user);
-        let text = CreatingJSON(description, date, time, user);
-        console.log(text);
-        yield CreateTask(text);
-    });
-}
-function CreatingJSON(description, date, time, user) {
-    let json = {
+// salva no banco
+function getTask() {
+    let description = document.getElementById('description').value;
+    let date = document.getElementById('date').value;
+    let time = document.getElementById('time').value;
+    let user = document.getElementById('user').value;
+    let form = {
         "description": description,
         "date": `${date} ${time}`,
         "user": user
     };
-    return json;
+    return form;
 }
-function CreateTask(text) {
+const createTask = () => __awaiter(this, void 0, void 0, function* () {
+    let response = yield createRequestTask();
+    let json = yield response['json']();
+    let statusCode = response['status'];
+    if (statusCode == 400) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 500) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 201) {
+        console.log("OK!");
+    }
+});
+function createRequestTask() {
     return __awaiter(this, void 0, void 0, function* () {
-        let request = yield fetch('http://127.0.0.1/:8080/api/v1/task', {
+        let form = getTask();
+        console.log(JSON.stringify(form));
+        let request = yield fetch("http://127.0.0.1:8080/api/v1/tasks", {
             method: 'POST',
-            body: text,
+            body: JSON.stringify(form),
             headers: new Headers({
-                'Content-Type': 'application/json'
+                'Content-Type': 'Application/Json'
             })
         });
         return request;
