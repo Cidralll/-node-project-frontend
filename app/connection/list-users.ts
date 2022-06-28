@@ -40,18 +40,87 @@ function listUsers(tasks) {
     }
     document.querySelector('.main-list-tasks').innerHTML = output;
     var aux = (<HTMLSelectElement>document.querySelector('.cont'));
+
+    Start2()
 }
 
 function SearchNameUsers() {
     let input = (<HTMLSelectElement>document.getElementById('searchbar')).value;
     input.toLocaleLowerCase();
-    let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
-    let users = (<HTMLSelectElement><unknown>document.querySelectorAll('.name-user'));
-    for (let i = 0; users.length > i; i++) {
-        if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
-            divs[i].style.display="none"
-        }else {
+    if (input) {
+        let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
+        let users = (<HTMLSelectElement><unknown>document.querySelectorAll('.name-user'));
+        for (let i = 0; users.length > i; i++) {
+            if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
+                divs[i].style.display="none"
+            }else {
+                divs[i].style.display="list-item"
+            }
+        }
+    }else {
+        Start2()
+    }
+    
+}
+
+let init2 = 0;
+let finish2 = 4;
+function Start2() {
+    let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));  
+    for(let i = 0;  divs.length > i; i++) {
+
+        if(i >= init2 && i < finish2) {
             divs[i].style.display="list-item"
+
+        } else{
+            divs[i].style.display="none"
+        }
+    }
+}
+
+
+
+function next2() {
+    let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
+    if(finish2 <= divs.length){
+        init2 += 4;
+        finish2 += 4;
+        
+        if (init2 <= divs.length)  {
+            for(let i = 0;  divs.length > i; i++) {
+    
+                if(i >= init2 && i < finish2) {
+                    divs[i].style.display="list-item"
+        
+                } else{
+                    divs[i].style.display="none"
+                }
+            }
+        }else if (finish2 > divs.length) {
+            return
+        }
+    }
+    
+}
+
+function back2() {
+    let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
+    if((init2 - 1) >= 0){
+        init2 -= 4;
+        finish2 -= 4;
+        
+        if (init2 <= divs.length)  {
+            for(let i = 0;  divs.length > i; i++) {
+    
+                if(i >= init2 && i < finish2) {
+                    divs[i].style.display="list-item"
+        
+                } else{
+                    divs[i].style.display="none"
+                }
+            }
+        }else if (finish2 > divs.length) {
+            return
         }
     }
 }
