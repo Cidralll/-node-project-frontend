@@ -21,43 +21,45 @@ function listSelection(names) {
 }
 GetNameSelection();
 
-// vai salvar os dados no banco
-async function Submit() {
+// salva no banco
+function getTask(): Object{
     let description = (<HTMLSelectElement>document.getElementById('description')).value;
     let date = (<HTMLSelectElement>document.getElementById('date')).value;
     let time = (<HTMLSelectElement>document.getElementById('time')).value;
-    let user = (<HTMLSelectElement>document.getElementById('user')).value;   
+    let user = (<HTMLSelectElement>document.getElementById('user')).value;
 
-    console.log(description)
-    console.log(date)
-    console.log(time)
-    console.log(user)
-
-    let text = CreatingJSON(description, date, time, user)
-    
-    console.log(text)
-
-    await CreateTask(text)
-}
-
-function CreatingJSON(description, date, time, user) { 
-    let json = {
+    let form = {
         "description": description,
         "date": `${date} ${time}`,
         "user": user
     }
-    
-    return json;
+        
+    return form;
 }
 
-async function CreateTask(text) {
-    let request = await fetch('http://127.0.0.1/:8080/api/v1/task', {
+const createTask = async () => {
+    let response = await createRequestTask();
+    let json = await response['json']();
+    let statusCode = response['status'];
+    if(statusCode == 400){
+        console.log(json['message'])
+    }else if(statusCode == 500) {
+        console.log(json['message'])
+    }else if(statusCode == 201){
+        console.log("OK!")
+    }
+}
+
+
+async function createRequestTask(): Promise<Object>{
+    let form = getTask();
+    console.log(JSON.stringify(form));
+    let request = await fetch("http://127.0.0.1:8080/api/v1/tasks", {
         method: 'POST',
-        body: text,
+        body: JSON.stringify(form),
         headers: new Headers({
-            'Content-Type': 'application/json'
+            'Content-Type': 'Application/Json'
         })
     });
-   
-   return request;
+    return request;
 }
