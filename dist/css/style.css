@@ -113,4 +113,26 @@
 .container-list label {
   font-size: 1.5rem;
 }
+
+.main-list-tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-list-tasks .div-tasks {
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 40%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10%;
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */
