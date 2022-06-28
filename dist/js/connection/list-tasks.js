@@ -42,6 +42,7 @@ function listTask(tasks) {
     }
     document.querySelector('.main-list-tasks').innerHTML = output;
     var aux = document.querySelector('.div-tasks');
+    Start();
 }
 GetTasks();
 const state = {
@@ -59,6 +60,59 @@ function SearchName() {
         }
         else {
             divs[i].style.display = "list-item";
+        }
+    }
+}
+let init = 0;
+let finish = 4;
+function Start() {
+    let divs = document.querySelectorAll('.div-tasks');
+    for (let i = 0; divs.length > i; i++) {
+        if (i >= init && i < finish) {
+            divs[i].style.display = "list-item";
+        }
+        else {
+            divs[i].style.display = "none";
+        }
+    }
+}
+function next() {
+    let divs = document.querySelectorAll('.div-tasks');
+    if (finish <= divs.length) {
+        init += 4;
+        finish += 4;
+        if (init <= divs.length) {
+            for (let i = 0; divs.length > i; i++) {
+                if (i >= init && i < finish) {
+                    divs[i].style.display = "list-item";
+                }
+                else {
+                    divs[i].style.display = "none";
+                }
+            }
+        }
+        else if (finish > divs.length) {
+            return;
+        }
+    }
+}
+function back() {
+    let divs = document.querySelectorAll('.div-tasks');
+    if ((init - 1) >= 0) {
+        init -= 4;
+        finish -= 4;
+        if (init <= divs.length) {
+            for (let i = 0; divs.length > i; i++) {
+                if (i >= init && i < finish) {
+                    divs[i].style.display = "list-item";
+                }
+                else {
+                    divs[i].style.display = "none";
+                }
+            }
+        }
+        else if (finish > divs.length) {
+            return;
         }
     }
 }
