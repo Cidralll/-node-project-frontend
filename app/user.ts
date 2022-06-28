@@ -96,15 +96,18 @@ async function createRequest(): Promise<Object>{
 }
 
 const deleteUser = async (id) => {
-    let response = await deleteRequest(id);
-    let json = await response['json']();
-    let statusCode = response['status'];
-    if(statusCode == 400){
-        console.log(json['message'])
-    }else if(statusCode == 500) {
-        console.log(json['message'])
-    }else if(statusCode == 200){
-        console.log("OK!")
+    let verifica = confirm("Tem certeza que quer excluir este usuario?")
+    if (verifica) {
+        let response = await deleteRequest(id);
+        let json = await response['json']();
+        let statusCode = response['status'];
+        if(statusCode == 400){
+            console.log(json['message'])
+        }else if(statusCode == 500) {
+            console.log(json['message'])
+        }else if(statusCode == 200){
+            console.log("OK!")
+        }
     }
 }
 
@@ -132,7 +135,7 @@ const updateUser = async () => {
     for (const param of params) {
         var id = param[1]
     }
-    let response = await updateRequest(id);
+    let response = await updateUserRequest(id);
     let json = await response['json']();
     let statusCode = response['status'];
     if(statusCode == 400){
@@ -146,7 +149,7 @@ const updateUser = async () => {
 }
 
 
-async function updateRequest(id): Promise<Object>{
+async function updateUserRequest(id): Promise<Object>{
     let form = getForm();
     let request = await fetch(`http://127.0.0.1:8080/api/v1/users/${id}`, {
         method: 'PUT',
