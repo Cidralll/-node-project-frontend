@@ -17,8 +17,7 @@ function listTask(tasks) {
                 <div>
 
                 </div>
-                <p class="cont" ></p>
-                
+                <h2 class="id" id="${task._id}">Id: ${cont}</h2>
                 <h2>Description: ${task.description}</h2>
                 <h2>Date task: ${task.date}</h2>
                 <h2>Userame: ${task.user}</h2>

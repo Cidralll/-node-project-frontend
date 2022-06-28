@@ -43,7 +43,7 @@ function Submit() {
         console.log(user);
         let text = CreatingJSON(description, date, time, user);
         console.log(text);
-        //await CreateTask(text)
+        yield CreateTask(text);
     });
 }
 function CreatingJSON(description, date, time, user) {
@@ -54,14 +54,15 @@ function CreatingJSON(description, date, time, user) {
     };
     return json;
 }
-/*async function CreateTask(text) {
-    let request = await fetch('http://127.0.0.1/:8080/api/v1/task', {
-        method: 'POST',
-        body: text,
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        })
+function CreateTask(text) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let request = yield fetch('http://127.0.0.1/:8080/api/v1/task', {
+            method: 'POST',
+            body: text,
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        });
+        return request;
     });
-   
-   return request;
-}*/ 
+}
