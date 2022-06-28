@@ -36,6 +36,45 @@ function getForm() {
     };
     return form;
 }
+const getOneUser = (id) => __awaiter(this, void 0, void 0, function* () {
+    const response = yield getOneRequest(id);
+    console.log(response);
+    const json = yield response['json']();
+    console.log(json);
+    let statusCode = response['status'];
+    if (statusCode == 400) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 500) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 200) {
+        console.log("OK!");
+    }
+    document.querySelector("#name").value = json.name;
+    document.querySelector("#cpf").value = json.cpf;
+    document.querySelector("#birthDate").value = json.birthDate;
+    document.querySelector("#email").value = json.email;
+    document.querySelector("#password").value = json.password;
+    document.querySelector("#address").value = json.address;
+    document.querySelector("#number").value = json.number;
+    document.querySelector("#complement").value = json.complement;
+    document.querySelector("#city").value = json.city;
+    document.querySelector("#state").value = json.state;
+    document.querySelector("#country").value = json.country;
+    document.querySelector("#zipCode").value = json.zipCode;
+});
+function getOneRequest(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let res = yield fetch(`http://127.0.0.1:8080/api/v1/users/${id}`, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'Application/Json'
+            })
+        });
+        return (res);
+    });
+}
 const createUser = () => __awaiter(this, void 0, void 0, function* () {
     let response = yield createRequest();
     let json = yield response['json']();
@@ -53,9 +92,72 @@ const createUser = () => __awaiter(this, void 0, void 0, function* () {
 function createRequest() {
     return __awaiter(this, void 0, void 0, function* () {
         let form = getForm();
-        console.log(JSON.stringify(form));
-        let request = yield fetch("http://127.0.0.1:3000/api/v1/users", {
+        let request = yield fetch("http://127.0.0.1:8080/api/v1/users", {
             method: 'POST',
+            body: JSON.stringify(form),
+            headers: new Headers({
+                'Content-Type': 'Application/Json'
+            })
+        });
+        return request;
+    });
+}
+const deleteUser = (id) => __awaiter(this, void 0, void 0, function* () {
+    let response = yield deleteRequest(id);
+    let json = yield response['json']();
+    let statusCode = response['status'];
+    if (statusCode == 400) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 500) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 200) {
+        console.log("OK!");
+    }
+});
+function deleteRequest(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let request = yield fetch(`http://127.0.0.1:8080/api/v1/users/${id}`, {
+            method: 'DELETE'
+        });
+        return request;
+    });
+}
+const loadUpdate = (id) => {
+    window.location.href = `http://localhost:3000/edit_user.html?param=${id}`;
+};
+const loadUser = () => {
+    const params = new URLSearchParams(window.location.search);
+    for (const param of params) {
+        var id = param[1];
+    }
+    getOneUser(id);
+};
+const updateUser = () => __awaiter(this, void 0, void 0, function* () {
+    const params = new URLSearchParams(window.location.search);
+    for (const param of params) {
+        var id = param[1];
+    }
+    let response = yield updateRequest(id);
+    let json = yield response['json']();
+    let statusCode = response['status'];
+    if (statusCode == 400) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 500) {
+        console.log(json['message']);
+    }
+    else if (statusCode == 200) {
+        window.location.href = `http://localhost:3000/list-users.html`;
+        console.log("OK!");
+    }
+});
+function updateRequest(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let form = getForm();
+        let request = yield fetch(`http://127.0.0.1:8080/api/v1/users/${id}`, {
+            method: 'PUT',
             body: JSON.stringify(form),
             headers: new Headers({
                 'Content-Type': 'Application/Json'

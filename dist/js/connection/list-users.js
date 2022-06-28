@@ -42,12 +42,13 @@ function listUsers(tasks) {
                 <h2>Country: ${task.country}</h2>
                 <h2>Zip code: ${task.zipCode}</h2>
                 <div class="border"></div>
+                <div class="imgs">
+                    <div class="img1" onclick="loadUpdate('${task._id}');"><img src="./img/editar.png" width=25 height=25></div>
+                    <div class="img2" onclick="deleteUser('${task._id}')"><img src="./img/cesto-de-lixo.png" width=30 height=30></div>
+                </div>
             </div>
         `;
     }
     document.querySelector('.main-list-tasks').innerHTML = output;
     var aux = document.querySelector('.cont');
-    console.log(aux.id);
-    console.log(cont);
 }
-GetUsers();
