@@ -37,7 +37,7 @@ async function Submit() {
     
     console.log(text)
 
-    //await CreateTask(text)
+    await CreateTask(text)
 }
 
 function CreatingJSON(description, date, time, user) { 
@@ -50,7 +50,7 @@ function CreatingJSON(description, date, time, user) {
     return json;
 }
 
-/*async function CreateTask(text) {
+async function CreateTask(text) {
     let request = await fetch('http://127.0.0.1/:8080/api/v1/task', {
         method: 'POST',
         body: text,
@@ -60,4 +60,4 @@ function CreatingJSON(description, date, time, user) {
     });
    
    return request;
-}*/
+}
