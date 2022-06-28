@@ -1,0 +1,28 @@
+.main-list-tasks {
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    .div-tasks {
+        margin-top: 5%;
+        margin-left: 5%;
+        width: 40%;
+        border-width: 2px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 10%;
+        text-align: center;
+
+        .imgs {
+            display: flex;
+            margin-left: 40%;
+
+            .img2 {
+                margin-left: 5%;
+            }
+        }
+    }
+}

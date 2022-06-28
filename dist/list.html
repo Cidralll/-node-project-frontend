@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/reset.css" rel="sylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <title>Task</title>
+</head>
+<body class="body-home" value="200">
+    <header class="header-list">
+        <h1>Creating a task</h1>
+    </header>
+
+    <main class="main-list">
+        <div class="container-list">
+            <div class="div-list">
+                <label>Task description</label>
+                <input type="text" id="description" value="">
+            </div>
+            <div class="div-list-select">
+                <div class="selects-div">
+                    <label>Task date</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="selects-div">
+                    <label>Task time</label>
+                    <input type="time" id="time">
+                </div>
+                <div class="selects-div">
+                    <label>Select user</label>
+                    <select id="user" class="select">
+    
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="button-registration">
+            <button onclick="Submit()">Submit</button >
+        </div>
+        
+    </main>
+    
+    <script src="./js/task.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+.header-list {
+    width: 75%;
+    margin-left: 12%;
+    margin-top: -2%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.container-list {
+    width: 60%;
+    margin-left: 20%;
+    .div-list {
+        display:grid;
+    }
+    .div-list input{
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+    .div-list-select {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5%;
+
+        .selects-div {
+            display: grid;
+        }
+        .selects-div input{
+            font-size: 1rem;
+        }
+    }
+}
+.container-list label {
+    font-size: 1.5rem;
+}

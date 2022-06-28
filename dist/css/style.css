@@ -56,7 +56,7 @@
 .body-home .button-registration {
   text-align: right;
   margin-top: 5%;
-  margin-right: 10%;
+  margin-right: 20%;
 }
 
 .body-home .button-registration button {
@@ -66,5 +66,84 @@
   font-size: 1.2rem;
   color: white;
   border: none;
+}
+
+.header-list {
+  width: 75%;
+  margin-left: 12%;
+  margin-top: -2%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.container-list {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.container-list .div-list {
+  display: -ms-grid;
+  display: grid;
+}
+
+.container-list .div-list input {
+  height: 1.5rem;
+  font-size: 1rem;
+}
+
+.container-list .div-list-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 5%;
+}
+
+.container-list .div-list-select .selects-div {
+  display: -ms-grid;
+  display: grid;
+}
+
+.container-list .div-list-select .selects-div input {
+  font-size: 1rem;
+}
+
+.container-list label {
+  font-size: 1.5rem;
+}
+
+.main-list-tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-list-tasks .div-tasks {
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 40%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10%;
+  text-align: center;
+}
+
+.main-list-tasks .div-tasks .imgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 40%;
+}
+
+.main-list-tasks .div-tasks .imgs .img2 {
+  margin-left: 5%;
 }
 /*# sourceMappingURL=style.css.map */
