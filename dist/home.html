@@ -20,68 +20,69 @@
             <div class="home-div">
                 <div class="div">
                     <label>Name</label>
-                    <input placeholder="Ex: Mary Jane Watson">
+                    <input placeholder="Ex: Mary Jane Watson" id="name">
                 </div>
                 <div class="div">
                     <label>CPF</label>
-                    <input placeholder="000.000.000-00">
+                    <input placeholder="000.000.000-00" id="cpf">
                 </div>
             </div>
 
             <div class="home-div">
                 <div class="div">
                     <label>Birth date</label>
-                    <input placeholder="25/12/2000">
+                    <input placeholder="25/12/2000" id="birthDate">
                 </div>
                 <div class="div">
                     <label>Email</label>
-                    <input placeholder="user.name@exemple.br">
+                    <input placeholder="user.name@exemple.br" id="email">
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Password</label>
-                    <input placeholder="Enter at least six digits">
+                    <input type="password" placeholder="Enter at least six digits" id="password">
                 </div>
                 <div class="div">
                     <label>Address</label>
-                    <input placeholder="Street xxx">
+                    <input placeholder="Street xxx" id="address">
                 </div>       
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Number</label>
-                    <input placeholder="415">
+                    <input placeholder="415" id="number">
                 </div>
                 <div class="div">
                     <label>Complement</label>
-                    <input placeholder="Ex: House">
+                    <input placeholder="Ex: House" id="complement">
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>City</label>
-                    <input placeholder="Ex: Mafra">
+                    <input placeholder="Ex: Mafra" id="city">
                 </div>
                 <div class="div">
                     <label>State</label>
-                    <input placeholder="Ex: SC">
+                    <input placeholder="Ex: SC" id="state">
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Contry</label>
-                    <input placeholder="Ex: Brazil">
+                    <input placeholder="Ex: Brazil" id="country">
                 </div>
                 <div class="div">
                     <label>Zip code</label>
-                    <input placeholder="Ex: 89000.000">
+                    <input placeholder="Ex: 89000.000" id="zipCode">
                 </div>
             </div>
+            <div class="button-registration">
+                <button onclick="createUser(event);">Submit</button>
+            </div>
         </div>
-        <div class="button-registration">
-            <button>Submit</button>
-        </div>
+        
     </main>
     <script src="js/user.js"></script>
 </body>
