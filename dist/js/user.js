@@ -118,6 +118,7 @@ const deleteUser = (id) => __awaiter(this, void 0, void 0, function* () {
         }
         else if (statusCode == 200) {
             console.log("OK!");
+            document.location.reload();
         }
     }
 });
