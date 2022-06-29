@@ -108,6 +108,7 @@ const deleteUser = (id) => __awaiter(this, void 0, void 0, function* () {
     let verifica = confirm("Tem certeza que quer excluir este usuario?");
     if (verifica) {
         let response = yield deleteRequest(id);
+        document.location.reload();
         let json = yield response['json']();
         let statusCode = response['status'];
         if (statusCode == 400) {
@@ -116,9 +117,8 @@ const deleteUser = (id) => __awaiter(this, void 0, void 0, function* () {
         else if (statusCode == 500) {
             console.log(json['message']);
         }
-        else if (statusCode == 200) {
+        else if (statusCode == 204) {
             console.log("OK!");
-            document.location.reload();
         }
     }
 });
