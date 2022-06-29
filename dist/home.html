@@ -24,18 +24,18 @@
                 </div>
                 <div class="div">
                     <label>CPF</label>
-                    <input placeholder="000.000.000-00" id="cpf">
+                    <input placeholder="000.000.000-00" id="cpf" maxlength="14" oninput="cpfMask();">
                 </div>
             </div>
 
             <div class="home-div">
                 <div class="div">
                     <label>Birth date</label>
-                    <input placeholder="25/12/2000" id="birthDate">
+                    <input placeholder="25/12/2000" maxlength="10" id="birthDate" oninput="dateMask('birthDate');">
                 </div>
                 <div class="div">
                     <label>Email</label>
-                    <input placeholder="user.name@exemple.br" id="email">
+                    <input placeholder="user.name@exemple.br" id="email" onblur="validateEmail()">
                 </div>
             </div>
             <div class="home-div">
@@ -75,8 +75,7 @@
                 </div>
                 <div class="div">
                     <label>Zip code</label>
-                    <input placeholder="Ex: 89000-000" id="zipCode">
-
+                    <input placeholder="Ex: 89000-000" maxlength="9" id="zipCode" oninput="zipCodeMask();">
                 </div>
             </div>
             <div class="button-registration">
@@ -86,5 +85,6 @@
         
     </main>
     <script src="js/user.js"></script>
+    <script src="js/validations.js"></script>
 </body>
 </html>

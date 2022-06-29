@@ -22,11 +22,11 @@
             <div class="div-list-select">
                 <div class="selects-div">
                     <label>Task date</label>
-                    <input type="text" id="date">
+                    <input type="text" id="date" maxlength="10" oninput="dateMask('date');">
                 </div>
                 <div class="selects-div">
                     <label>Task time</label>
-                    <input type="text" id="time">
+                    <input type="text" id="time" maxlength="8" oninput="timeMask();">
                 </div>
                 <div class="selects-div">
                     <label>Select user</label>
@@ -43,5 +43,6 @@
     </main>
     
     <script src="js/task.js"></script>
+    <script src="js/validations.js"></script>
 </body>
 </html>
