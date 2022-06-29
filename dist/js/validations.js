@@ -7,16 +7,39 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const validateEmail = () => __awaiter(this, void 0, void 0, function* () {
-    let emailReg = /\S+@\S+\.\S+/;
-    let emailVal = document.querySelector("#email");
-    if (emailVal.value.match(emailReg)) {
-        console.log('Email Válido');
-    }
-    else {
-        console.log('Email Inválido');
-    }
-});
+function validationInputsUser() {
+    let name = document.getElementById('name').value;
+    let cpf = document.getElementById('cpf').value;
+    let birthDate = document.getElementById('birthDate').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let address = document.getElementById('address').value;
+    let number = document.getElementById('number').value;
+    let complement = document.getElementById('complement').value;
+    let city = document.getElementById('city').value;
+    let state = document.getElementById('state').value;
+    let country = document.getElementById('country').value;
+    let desczipCodeiption = document.getElementById('desczipCodeiption').value;
+    console.log('importou');
+    /*if (description.length < 1) {
+        msgHHTML = `<p class="error-input">Description cannot be null</p>`;
+        (<HTMLSelectElement>document.querySelector('.input-error-msg1')).innerHTML = msgHHTML;
+        validating = false;
+    }else if (description.length > 0) {
+        msgHHTML = `<p class="error-input"></p>`;
+        (<HTMLSelectElement>document.querySelector('.input-error-msg1')).innerHTML = msgHHTML;
+    }*/
+    const validateEmail = () => __awaiter(this, void 0, void 0, function* () {
+        let emailReg = /\S+@\S+\.\S+/;
+        let emailVal = document.querySelector("#email");
+        if (emailVal.value.match(emailReg)) {
+            console.log('Email Válido');
+        }
+        else {
+            console.log('Email Inválido');
+        }
+    });
+}
 const cpfMask = () => __awaiter(this, void 0, void 0, function* () {
     let cpfNum = document.querySelector("#cpf");
     let cpfReg = /([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/;

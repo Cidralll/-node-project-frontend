@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/reset.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>Update User</title>
 </head>
 <body class="body-home" onload="loadUser();">
     <header class="header-home">
+        <div class="nav-menu">
+            <div class="a-menu">
+                    <div class="menu">
+                    <a href="index.html" class="text-menu">Home</a>
+                    <a href="home.html">Creating a user</a>
+                    <a href="./list-users.html">List Users</a>
+                    <a href="./list.html" >Creating a task</a>
+                    <a href="./list-tasks.html">List Tasks</a>
+                </div>
+            </div>
+        </div>
         <h1>Update User
         </h1>
     </header>
@@ -20,10 +32,12 @@
                 <div class="div">
                     <label>Name</label>
                     <input placeholder="Ex: Mary Jane Watson" id="name">
+                    <div class="input-error-msg1"></div>
                 </div>
                 <div class="div">
                     <label>CPF</label>
                     <input placeholder="000.000.000-00" id="cpf" maxlength="14" oninput="cpfMask();">
+                    <div class="input-error-msg2"></div>
                 </div>
             </div>
 
@@ -31,50 +45,60 @@
                 <div class="div">
                     <label>Birth date</label>
                     <input placeholder="25/12/2000" maxlength="10" id="birthDate" oninput="dateMask('birthDate');">
+                    <div class="input-error-msg3"></div>
                 </div>
                 <div class="div">
                     <label>Email</label>
-                    <input placeholder="user.name@exemple.br" id="email" onblur="validateEmail()">
+                    <input placeholder="user.name@exemple.br" id="email">
+                    <div class="input-error-msg4"></div>
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Password</label>
                     <input type="password" placeholder="Enter at least six digits" id="password">
+                    <div class="input-error-msg5"></div>
                 </div>
                 <div class="div">
                     <label>Address</label>
                     <input placeholder="Street xxx" id="address">
+                    <div class="input-error-msg6"></div>
                 </div>       
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Number</label>
                     <input placeholder="415" id="number">
+                    <div class="input-error-msg7"></div>
                 </div>
                 <div class="div">
                     <label>Complement</label>
                     <input placeholder="Ex: House" id="complement">
+                    <div class="input-error-msg8"></div>
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>City</label>
                     <input placeholder="Ex: Mafra" id="city">
+                    <div class="input-error-msg9"></div>
                 </div>
                 <div class="div">
                     <label>State</label>
-                    <input placeholder="Ex: SC" id="state">
+                    <input placeholder="Ex: SC" id="state" maxlength="2">
+                    <div class="input-error-msg10"></div>
                 </div>
             </div>
             <div class="home-div">
                 <div class="div">
                     <label>Contry</label>
                     <input placeholder="Ex: Brazil" id="country">
+                    <div class="input-error-msg11"></div>
                 </div>
                 <div class="div">
                     <label>Zip code</label>
                     <input placeholder="Ex: 89000-000" maxlength="9" id="zipCode" oninput="zipCodeMask();">
+                    <div class="input-error-msg12"></div>
                 </div>
             </div>
             <div class="button-registration">
