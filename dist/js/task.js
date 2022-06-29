@@ -56,7 +56,6 @@ const createTask = () => __awaiter(this, void 0, void 0, function* () {
             console.log(json['message']);
         }
         else if (statusCode == 201) {
-            console.log("OK!");
             document.location.reload();
             return alert('Created task');
         }
@@ -100,7 +99,6 @@ const getOneTask = (id) => __awaiter(this, void 0, void 0, function* () {
         console.log(json['message']);
     }
     else if (statusCode == 200) {
-        console.log("OK!");
     }
     let inputDateTime = json.date;
     let date = inputDateTime.slice(0, 10);
@@ -139,7 +137,6 @@ const updateTask = () => __awaiter(this, void 0, void 0, function* () {
         }
         else if (statusCode == 200) {
             window.location.href = `http://localhost:3000/list-tasks.html`;
-            console.log("OK!");
         }
     }
     else {
@@ -197,9 +194,7 @@ function validatingTasks() {
         let yearNow2 = String(dateNow.getFullYear()).padStart(2, '0');
         let yearNow = parseInt(yearNow2);
         if (yearNow <= yearInput && yearInput < 2023) {
-            console.log('tudo certo ate o ano');
             if (monthNow <= monthInput && monthInput < 13) {
-                console.log('tudo certo ate o mes');
                 if (monthNow == monthInput) {
                     if (dayNow < dayInput && dayInput < 32) {
                         console.log('Tudo certo');

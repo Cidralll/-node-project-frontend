@@ -48,7 +48,6 @@ const createTask = async () => {
         }else if(statusCode == 500) {
             console.log(json['message'])
         }else if(statusCode == 201){
-            console.log("OK!")
             document.location.reload();
             return alert('Created task')
         }
@@ -92,7 +91,6 @@ const getOneTask = async (id) => {
     }else if(statusCode == 500) {
         console.log(json['message'])
     }else if(statusCode == 200){
-        console.log("OK!")
     }
     
     let inputDateTime = json.date;
@@ -132,7 +130,6 @@ const updateTask = async () => {
             console.log(json['message'])
         }else if(statusCode == 200){
             window.location.href = `http://localhost:3000/list-tasks.html`;
-            console.log("OK!")
         }
     }else {
         return
@@ -192,9 +189,7 @@ function validatingTasks() {
         let yearNow  = parseInt(yearNow2);
 
         if (yearNow <= yearInput && yearInput < 2023) {
-            console.log('tudo certo ate o ano')
             if(monthNow <= monthInput && monthInput < 13) {
-                console.log('tudo certo ate o mes')
                 if (monthNow == monthInput) {
                     if (dayNow < dayInput && dayInput < 32) {
                         console.log('Tudo certo')
