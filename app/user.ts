@@ -79,6 +79,8 @@ const createUser = async () => {
         console.log(json['message'])
     }else if(statusCode == 201){
         console.log("OK!")
+        document.location.reload();
+        return alert('Created user')
     }
 }
 

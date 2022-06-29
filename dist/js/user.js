@@ -87,6 +87,8 @@ const createUser = () => __awaiter(this, void 0, void 0, function* () {
     }
     else if (statusCode == 201) {
         console.log("OK!");
+        document.location.reload();
+        return alert('Created user');
     }
 });
 function createRequest() {
