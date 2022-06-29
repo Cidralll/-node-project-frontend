@@ -52,15 +52,20 @@ const state = {
 function SearchName() {
     let input = document.getElementById('searchbar').value;
     input.toLocaleLowerCase();
-    let divs = document.querySelectorAll('.div-tasks');
-    let users = document.querySelectorAll('.name-user');
-    for (let i = 0; users.length > i; i++) {
-        if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
-            divs[i].style.display = "none";
+    if (input) {
+        let divs = document.querySelectorAll('.div-tasks');
+        let users = document.querySelectorAll('.name-user');
+        for (let i = 0; users.length > i; i++) {
+            if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
+                divs[i].style.display = "none";
+            }
+            else {
+                divs[i].style.display = "list-item";
+            }
         }
-        else {
-            divs[i].style.display = "list-item";
-        }
+    }
+    else {
+        Start();
     }
 }
 let init = 0;

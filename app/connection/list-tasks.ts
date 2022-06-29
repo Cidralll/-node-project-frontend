@@ -45,14 +45,18 @@ const state = {
 function SearchName() {
     let input = (<HTMLSelectElement>document.getElementById('searchbar')).value;
     input.toLocaleLowerCase();
-    let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
-    let users = (<HTMLSelectElement><unknown>document.querySelectorAll('.name-user'));
-    for (let i = 0; users.length > i; i++) {
-        if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
-            divs[i].style.display="none"
-        }else {
-            divs[i].style.display="list-item"
+    if (input) {
+        let divs = (<HTMLSelectElement><unknown>document.querySelectorAll('.div-tasks'));
+        let users = (<HTMLSelectElement><unknown>document.querySelectorAll('.name-user'));
+        for (let i = 0; users.length > i; i++) {
+            if (!users[i].innerHTML.toLocaleLowerCase().includes(input)) {
+                divs[i].style.display="none"
+            }else {
+                divs[i].style.display="list-item"
+            }
         }
+    }else {
+        Start()
     }
 }
 
