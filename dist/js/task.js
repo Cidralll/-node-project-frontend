@@ -44,19 +44,25 @@ function getTask() {
     return form;
 }
 const createTask = () => __awaiter(this, void 0, void 0, function* () {
-    let response = yield createRequestTask();
-    let json = yield response['json']();
-    let statusCode = response['status'];
-    if (statusCode == 400) {
-        console.log(json['message']);
+    let validating = validatingTasks();
+    if (validating) {
+        let response = yield createRequestTask();
+        let json = yield response['json']();
+        let statusCode = response['status'];
+        if (statusCode == 400) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 500) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 201) {
+            console.log("OK!");
+            document.location.reload();
+            return alert('Created task');
+        }
     }
-    else if (statusCode == 500) {
-        console.log(json['message']);
-    }
-    else if (statusCode == 201) {
-        console.log("OK!");
-        document.location.reload();
-        return alert('Created task');
+    else {
+        return;
     }
 });
 function createRequestTask() {
@@ -116,22 +122,28 @@ function getOneTaskRequest(id) {
     });
 }
 const updateTask = () => __awaiter(this, void 0, void 0, function* () {
-    const params = new URLSearchParams(window.location.search);
-    for (const param of params) {
-        var id = param[1];
+    let validating = validatingTasks();
+    if (validating) {
+        const params = new URLSearchParams(window.location.search);
+        for (const param of params) {
+            var id = param[1];
+        }
+        let response = yield updateTaskRequest(id);
+        let json = yield response['json']();
+        let statusCode = response['status'];
+        if (statusCode == 400) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 500) {
+            console.log(json['message']);
+        }
+        else if (statusCode == 200) {
+            window.location.href = `http://localhost:3000/list-tasks.html`;
+            console.log("OK!");
+        }
     }
-    let response = yield updateTaskRequest(id);
-    let json = yield response['json']();
-    let statusCode = response['status'];
-    if (statusCode == 400) {
-        console.log(json['message']);
-    }
-    else if (statusCode == 500) {
-        console.log(json['message']);
-    }
-    else if (statusCode == 200) {
-        window.location.href = `http://localhost:3000/list-tasks.html`;
-        console.log("OK!");
+    else {
+        return;
     }
 });
 function updateTaskRequest(id) {
@@ -146,4 +158,91 @@ function updateTaskRequest(id) {
         });
         return request;
     });
+}
+// VALIDANDO DADOS  PARA ENVIAR
+function validatingTasks() {
+    let msgHHTML = '';
+    let description = document.getElementById('description').value;
+    let date = document.getElementById('date').value;
+    let time = document.getElementById('time').value;
+    let validating = true;
+    //VALIDADNDO DESCRICAO
+    if (description.length < 1) {
+        msgHHTML = `<p class="error-input">Description cannot be null</p>`;
+        document.querySelector('.input-error-msg1').innerHTML = msgHHTML;
+        validating = false;
+    }
+    else if (description.length > 0) {
+        msgHHTML = `<p class="error-input"></p>`;
+        document.querySelector('.input-error-msg1').innerHTML = msgHHTML;
+    }
+    // validando data futura
+    if (date.length < 10) {
+        msgHHTML = `<p class="error-input">Enter a valid date</p>`;
+        document.querySelector('.input-error-msg2').innerHTML = msgHHTML;
+        validating = false;
+    }
+    else if (date.length == 10) {
+        msgHHTML = `<p class="error-input"></p>`;
+        document.querySelector('.input-error-msg2').innerHTML = msgHHTML;
+    }
+    if (date.length == 10) {
+        let [dayInput, monthInput, yearInput] = date.split('/').map(Number);
+        let dateNow = new Date();
+        let dayNow2 = String(dateNow.getDate()).padStart(2, '0');
+        let dayNow = parseInt(dayNow2);
+        let monthNow2 = String(dateNow.getMonth()).padStart(2, '0');
+        let monthNow = parseInt(monthNow2);
+        monthNow++;
+        let yearNow2 = String(dateNow.getFullYear()).padStart(2, '0');
+        let yearNow = parseInt(yearNow2);
+        if (yearNow <= yearInput && yearInput < 2023) {
+            console.log('tudo certo ate o ano');
+            if (monthNow <= monthInput && monthInput < 13) {
+                console.log('tudo certo ate o mes');
+                if (monthNow == monthInput) {
+                    if (dayNow < dayInput && dayInput < 32) {
+                        console.log('Tudo certo');
+                    }
+                    else {
+                        msgHHTML = `<p class="error-input">Enter a valid value for the day</p>`;
+                        document.querySelector('.input-error-msg2').innerHTML = msgHHTML;
+                        validating = false;
+                    }
+                }
+            }
+            else {
+                msgHHTML = `<p class="error-input">Enter a valid value for the month</p>`;
+                document.querySelector('.input-error-msg2').innerHTML = msgHHTML;
+                validating = false;
+            }
+        }
+        else {
+            msgHHTML = `<p class="error-input">Enter a valid value for the year</p>`;
+            document.querySelector('.input-error-msg2').innerHTML = msgHHTML;
+            validating = false;
+        }
+    }
+    //VALIDANDO TIME
+    if (time.length < 5) {
+        msgHHTML = `<p class="error-input">Inform a valid time</p>`;
+        document.querySelector('.input-error-msg3').innerHTML = msgHHTML;
+        validating = false;
+    }
+    else if (time.length == 5) {
+        let ok = true;
+        let [a, b, c, d, e] = time.padStart(4, '');
+        let hour = parseInt(a + b);
+        let minutes = parseInt(d + e);
+        if (hour > 24 || minutes > 60) {
+            msgHHTML = `<p class="error-input"></p>`;
+            document.querySelector('.input-error-msg3').innerHTML = msgHHTML;
+        }
+        else if (ok == true) {
+            msgHHTML = `<p class="error-input"></p>`;
+            document.querySelector('.input-error-msg3').innerHTML = msgHHTML;
+        }
+        console.log(`${hour}:${minutes}`);
+    }
+    return validating;
 }
