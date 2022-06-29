@@ -101,17 +101,20 @@ const deleteUser = async (id) => {
     let verifica = confirm("Tem certeza que quer excluir este usuario?")
     if (verifica) {
         let response = await deleteRequest(id);
+        document.location.reload();
         let json = await response['json']();
         let statusCode = response['status'];
         if(statusCode == 400){
             console.log(json['message'])
         }else if(statusCode == 500) {
             console.log(json['message'])
-        }else if(statusCode == 200){
+        }else if(statusCode == 204){
             console.log("OK!")
-            document.location.reload();
+            
         }
+        
     }
+    
 }
 
 async function deleteRequest(id): Promise<Object>{
