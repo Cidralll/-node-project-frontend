@@ -1,13 +1,43 @@
-const validateEmail = async () => {
-    let emailReg = /\S+@\S+\.\S+/;
-    let emailVal = (<HTMLSelectElement> document.querySelector("#email"));
+function validationInputsUser() {
+    let name = (<HTMLSelectElement>document.getElementById('name')).value; 
+    let cpf = (<HTMLSelectElement>document.getElementById('cpf')).value;
+    let birthDate = (<HTMLSelectElement>document.getElementById('birthDate')).value;
+    let email = (<HTMLSelectElement>document.getElementById('email')).value; 
+    let password = (<HTMLSelectElement>document.getElementById('password')).value;
+    let address = (<HTMLSelectElement>document.getElementById('address')).value; 
+    let number = (<HTMLSelectElement>document.getElementById('number')).value; 
+    let complement = (<HTMLSelectElement>document.getElementById('complement')).value;
+    let city = (<HTMLSelectElement>document.getElementById('city')).value;
+    let state =(<HTMLSelectElement>document.getElementById('state')).value;  
+    let country = (<HTMLSelectElement>document.getElementById('country')).value;
+    let desczipCodeiption = (<HTMLSelectElement>document.getElementById('desczipCodeiption')).value;
 
-    if (emailVal.value.match(emailReg)) {
-      console.log('Email Válido')
-    }else{
-      console.log('Email Inválido')
+    console.log('importou')
+
+    /*if (description.length < 1) {
+        msgHHTML = `<p class="error-input">Description cannot be null</p>`;
+        (<HTMLSelectElement>document.querySelector('.input-error-msg1')).innerHTML = msgHHTML;
+        validating = false;
+    }else if (description.length > 0) {
+        msgHHTML = `<p class="error-input"></p>`;
+        (<HTMLSelectElement>document.querySelector('.input-error-msg1')).innerHTML = msgHHTML;
+    }*/
+
+
+
+    const validateEmail = async () => {
+        let emailReg = /\S+@\S+\.\S+/;
+        let emailVal = (<HTMLSelectElement> document.querySelector("#email"));
+    
+        if (emailVal.value.match(emailReg)) {
+          console.log('Email Válido')
+        }else{
+          console.log('Email Inválido')
+        }
     }
+    
 }
+
 
 const cpfMask = async () => {
     let cpfNum = (<HTMLSelectElement> document.querySelector("#cpf"));
