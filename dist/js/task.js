@@ -22,6 +22,8 @@ function GetNameSelection() {
 }
 function listSelection(names) {
     let output = '';
+    let select = `<option value="1" class="option-value">Select</option>`;
+    output += select;
     for (let name of names) {
         output += `
             <option value="${name.name}" class="option-value">${name.name}</option>
@@ -162,6 +164,7 @@ function validatingTasks() {
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
     let time = document.getElementById('time').value;
+    let user = document.getElementById('user').value;
     let validating = true;
     //VALIDADNDO DESCRICAO
     if (description.length < 1) {
@@ -238,6 +241,16 @@ function validatingTasks() {
             document.querySelector('.input-error-msg3').innerHTML = msgHHTML;
         }
         console.log(`${hour}:${minutes}`);
+    }
+    // VALIDANDO SELECT
+    if (user == '1') {
+        msgHHTML = `<p class="error-input">Select a user</p>`;
+        document.querySelector('.input-error-msg4').innerHTML = msgHHTML;
+        validating = false;
+    }
+    else if (user != '1') {
+        msgHHTML = `<p class="error-input"></p>`;
+        document.querySelector('.input-error-msg4').innerHTML = msgHHTML;
     }
     return validating;
 }
