@@ -109,6 +109,7 @@ const deleteUser = async (id) => {
             console.log(json['message'])
         }else if(statusCode == 200){
             console.log("OK!")
+            document.location.reload();
         }
     }
 }
