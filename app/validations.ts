@@ -11,7 +11,6 @@ const validateEmail = async () => {
 
 const cpfMask = async () => {
     let cpfNum = (<HTMLSelectElement> document.querySelector("#cpf"));
-    console.log(cpfNum)
     let cpfReg = /([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/;
     
     cpfNum.value = cpfNum.value
@@ -23,7 +22,6 @@ const cpfMask = async () => {
 
 const dateMask = async (input : string) => {
     let dateNum = (<HTMLSelectElement> document.querySelector("#"+input));
-    console.log(dateNum)
     let dateReg = /([0-9]{2}[\/]?[0-9]{2}[\/]?[0-9]{2})/;
     
     dateNum.value = dateNum.value
@@ -34,12 +32,10 @@ const dateMask = async (input : string) => {
 
 const timeMask = async (input : string) => {
     let timeNum = (<HTMLSelectElement> document.querySelector("#time"));
-    console.log(timeNum)
     let timeReg = /([0-9]{2}[\:]?[0-9]{2}[\:]?[0-9]{2})/;
     
     timeNum.value = timeNum.value
     .replace(/\D/g,"")
-    .replace(/(\d{2})(\d)/,"$1:$2")
     .replace(/(\d{2})(\d)/,"$1:$2")
 }
 

@@ -19,7 +19,6 @@ const validateEmail = () => __awaiter(this, void 0, void 0, function* () {
 });
 const cpfMask = () => __awaiter(this, void 0, void 0, function* () {
     let cpfNum = document.querySelector("#cpf");
-    console.log(cpfNum);
     let cpfReg = /([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/;
     cpfNum.value = cpfNum.value
         .replace(/\D/g, "")
@@ -29,7 +28,6 @@ const cpfMask = () => __awaiter(this, void 0, void 0, function* () {
 });
 const dateMask = (input) => __awaiter(this, void 0, void 0, function* () {
     let dateNum = document.querySelector("#" + input);
-    console.log(dateNum);
     let dateReg = /([0-9]{2}[\/]?[0-9]{2}[\/]?[0-9]{2})/;
     dateNum.value = dateNum.value
         .replace(/\D/g, "")
@@ -38,11 +36,9 @@ const dateMask = (input) => __awaiter(this, void 0, void 0, function* () {
 });
 const timeMask = (input) => __awaiter(this, void 0, void 0, function* () {
     let timeNum = document.querySelector("#time");
-    console.log(timeNum);
     let timeReg = /([0-9]{2}[\:]?[0-9]{2}[\:]?[0-9]{2})/;
     timeNum.value = timeNum.value
         .replace(/\D/g, "")
-        .replace(/(\d{2})(\d)/, "$1:$2")
         .replace(/(\d{2})(\d)/, "$1:$2");
 });
 const zipCodeMask = () => __awaiter(this, void 0, void 0, function* () {

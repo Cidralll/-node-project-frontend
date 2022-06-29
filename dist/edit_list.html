@@ -9,7 +9,7 @@
 </head>
 <body class="body-home" value="200" onload="loadTask();">
     <header class="header-list">
-        <h1>Creating a task</h1>
+        <h1>Edit a task</h1>
     </header>
 
     <main class="main-list">
@@ -17,15 +17,18 @@
             <div class="div-list">
                 <label>Task description</label>
                 <input type="text" id="description">
+                <div class="input-error-msg1"></div>
             </div>
             <div class="div-list-select">
                 <div class="selects-div">
                     <label>Task date</label>
                     <input type="text" id="date" maxlength="10" oninput="dateMask('date');">
+                    <div class="input-error-msg2"></div>
                 </div>
                 <div class="selects-div">
                     <label>Task time</label>
-                    <input type="text" id="time" maxlength="8" oninput="timeMask();">
+                    <input type="text" id="time" maxlength="5" oninput="timeMask();">
+                    <div class="input-error-msg2"></div>
                 </div>
                 <div class="selects-div">
                     <label>Select user</label>
